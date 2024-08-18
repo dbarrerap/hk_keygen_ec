@@ -42,7 +42,9 @@
             <div class="col">
                 <div class="mb-3">
                     <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar"></div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar">
+                            <span id="pBarText"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,7 +128,7 @@
             //console.log(JSON.stringify(themeData))
             const cuerpo = document.querySelector('body')
             const newParams = Object.freeze({
-                backgroundColor: themeData.bg_color,
+                backgroundColor: themeData.secondary_bg_color,
                 color: themeData.text_color
             })
             for (const prop in newParams) {

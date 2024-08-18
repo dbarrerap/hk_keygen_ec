@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cmbSelectedGame = document.querySelector('#cmb-game')
     const ul = document.querySelector('#messages')
     let pBarPercentage = 0;
+    const pBarText = document.querySelector('#pBarText')
 
     const EVENT_DELAY = 2e4
 
@@ -56,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // APS Token
     const tokens = Object.freeze({
-        BIKE: Object.freeze({ token: 'd28721be-fd2d-4b45-869e-9f253b554e50', promo: '43e35910-c168-4634-ad4f-52fd764a843f' }),
-        CLONE: Object.freeze({ token: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb', promo: 'fe693b26-b342-4159-8808-15e3ff7f8767' }),
-        CUBE: Object.freeze({ token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3' }),
-        TRAIN: Object.freeze({ token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954' }),
-        MERGE: Object.freeze({ token: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promo: 'dc128d28-c45b-411c-98ff-ac7726fbaea4' }),
-        TWERK: Object.freeze({ token: '61308365-9d16-4040-8bb0-2f4a4c69074c', promo: '61308365-9d16-4040-8bb0-2f4a4c69074c' })
+        BIKE: Object.freeze({ token: 'd28721be-fd2d-4b45-869e-9f253b554e50', promo: '43e35910-c168-4634-ad4f-52fd764a843f', attempts: 22, delay: 2e4, }),
+        CLONE: Object.freeze({ token: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb', promo: 'fe693b26-b342-4159-8808-15e3ff7f8767', attempts: 22, delay: 3e4, }),
+        CUBE: Object.freeze({ token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3', attempts: 10, delay: 2e4, }),
+        TRAIN: Object.freeze({ token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954', attempts: 10, delay: 2e4, }),
+        MERGE: Object.freeze({ token: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promo: 'dc128d28-c45b-411c-98ff-ac7726fbaea4', attempts: 10, delay: 2e4, }),
+        TWERK: Object.freeze({ token: '61308365-9d16-4040-8bb0-2f4a4c69074c', promo: '61308365-9d16-4040-8bb0-2f4a4c69074c', attempts: 10, delay: 2e4, })
     })
 
     const generateId = (selectedGame) => {
@@ -80,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             method: "POST",
             headers: { "Content-Type": "application/json; charset=utf-8", Host: "api.gamepromo.io" },
             body: JSON.stringify({ appToken: appToken, clientId: deviceId, clientOrigin: "deviceid" })
-        }),
-            { clientToken: r } = await response.json()
+        }), { clientToken: r } = await response.json()
 
         return r
     }
@@ -92,8 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             method: "POST",
             headers: { Authorization: `Bearer ${clientToken}`, "Content-Type": "application/json; charset=utf-8", Host: "api.gamepromo.io" },
             body: JSON.stringify({ promoId: promo, eventId: window.crypto.randomUUID(), eventOrigin: "undefined" })
-        }),
-            { hasCode: r } = await response.json()
+        }), { hasCode: r } = await response.json()
 
         return r
     }
@@ -110,18 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const generateCode = async (selectedGame) => {
-        // Housekeeping
-        clearMessages()
-        txtCode.value = ''
-        btnCopy.disabled = true
-        btnRefresh.disabled = true
-        btnClear.disabled = true
-        cmbSelectedGame.disabled = true
-        setProgressBar(0)
-
+        
         // Validar seleccion
         // console.log(selectedGame)
         if (selectedGame === '-- SELECT --') return
+
+        // Housekeeping
+        clearMessages()
+        txtCode.value = ''
+        latchButtons(true)
+        cmbSelectedGame.disabled = true
+        setProgressBar(0)
 
         try {
             // Inicar sesion
@@ -139,14 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
             ul.appendChild(lregister)
             let r = null;
             let c = 0
-            for (; !r && c < 10; c++) {
-                await sleep(EVENT_DELAY * delayRandom())
+            for (; !r && c < tokens[selectedGame]['attempts']; c++) {
+                await sleep(tokens[selectedGame]['delay'] * delayRandom())
                 r = await register(clientToken, tokens[selectedGame]['promo']);
                 r ? lregister.appendChild(document.createTextNode('OK')) : lregister.appendChild(document.createTextNode('.'))
                 ul.appendChild(lregister)
-                setProgressBar(pBarPercentage + 7)
+                setProgressBar(pBarPercentage + (70 / tokens[selectedGame]['attempts']))
             }
-            if (c > 10) throw new Error('[Register] Error -- Se ha superado el limite de intentos.')
+            if (c > tokens[selectedGame]['attempts']) throw new Error('[Register] Error -- Se ha superado el limite de intentos.')
 
             // Obtener
             const lcreate = document.createElement('li')
@@ -160,12 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (err) {
             const lerror = document.createElement('li')
             lerror.appendChild(document.createTextNode(err))
+            ul.appendChild(lerror)
             console.log(err)
         } finally {
-            btnCopy.disabled = false
-            btnRefresh.disabled = false
-            cmbSelectedGame.disabled = false
-            btnClear.disabled = false
+            latchButtons(false)
         }
 
     }
@@ -176,6 +172,13 @@ document.addEventListener('DOMContentLoaded', () => {
         while (ul.firstChild) ul.removeChild(ul.firstChild)
     }
 
+    const latchButtons = (state) => {
+        btnCopy.disabled = state
+        btnRefresh.disabled = state
+        cmbSelectedGame.disabled = state
+        btnClear.disabled = state
+    }
+
     const delayRandom = () => Math.random() / 3 + 1
 
     const sleep = (time) => new Promise(r => setTimeout(r, time))
@@ -183,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const setProgressBar = (valor) => {
         pBarPercentage = valor
         pbar.style.width = `${valor}%`
+        pBarText.innerHTML = `${valor}%`
     }
 })
 
@@ -194,4 +198,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.1.1 Agregar mensajes de progreso, Instrucciones y Aviso Legal
  * 1.2.0 Nuevo juego, Merge Away. Carga dinamica de lista desplegable. Separacion de deviceid por juego.
  * 1.2.1 Nuevo juego, Twerk Race.
+ * 1.2.2 Parametrizacion de intentos. Mostrar error en Mensajes. Ajuste de logica onChange.
  */
