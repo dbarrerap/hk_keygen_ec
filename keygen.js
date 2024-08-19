@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const ul = document.querySelector('#messages')
     let pBarPercentage = 0;
     const pBarText = document.querySelector('#pBarText')
-
-    const EVENT_DELAY = 2e4
+    const btnRestore = document.querySelector('#btn-addon-restore')
+    const toastElement = document.querySelector('#toastr')
 
     // Events
     btnCopy.addEventListener('click', () => {
@@ -18,15 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
         txtCode.select()
         txtCode.setSelectionRange(0, 99999)
         navigator.clipboard.writeText(txtCode.value)
+        showToast('Copiado', 'text-bg-success')
     })
 
     btnClear.addEventListener('click', () => {
-        if (!confirm('Esta seguro/a de borrar el codigo generado?')) return
+        // if (!confirm('Esta seguro/a de borrar el codigo generado?')) return;
         txtCode.value = ''
-        btnCopy.disabled = true
-        btnRefresh.disabled = true
+        latchButtons(true)
         setProgressBar(0)
         clearMessages()
+    })
+
+    btnRestore.addEventListener('click', () => {
+        if (!confirm("Esta seguro/a de restablecer los identificadores?")) return;
+        localStorage.clear()
+        showToast('Identificadores reiniciados', 'text-bg-info')
     })
 
     btnRefresh.addEventListener('click', () => {
@@ -36,6 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cmbSelectedGame.addEventListener('change', (event) => {
         generateCode(event.target.value)
+    })
+
+    toastElement.addEventListener('hidden.bs.toast', () => {
+        console.log('Toastr hidden')
+        if (toastElement.classList.contains('text-bg-success')) toastElement.classList.remove('text-bg-success')
+        if (toastElement.classList.contains('text-bg-info'))toastElement.classList.remove('text-bg-info')
     })
 
     // APPS Enum
@@ -186,7 +198,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const setProgressBar = (valor) => {
         pBarPercentage = valor
         pbar.style.width = `${valor}%`
-        pBarText.innerHTML = `${valor}%`
+        pBarText.innerHTML = `${roundTo(valor, 2)}%`
+    }
+
+    const roundTo = (number, precision) => {
+        const factor = Math.pow(10, precision)
+        return Math.round(number * factor) / factor
+    }
+
+    const showToast = (msg, style) => {
+        toastElement.classList.add(style)
+        const toastr = new bootstrap.Toast(toastElement)
+        document.querySelector('#toast-msg').innerHTML = msg
+        toastr.show()
     }
 })
 
@@ -199,4 +223,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.0 Nuevo juego, Merge Away. Carga dinamica de lista desplegable. Separacion de deviceid por juego.
  * 1.2.1 Nuevo juego, Twerk Race.
  * 1.2.2 Parametrizacion de intentos. Mostrar error en Mensajes. Ajuste de logica onChange.
+ * 1.2.3 Ajuste en mostrado de valor de barra. Uso de Toast para mensajes
  */
