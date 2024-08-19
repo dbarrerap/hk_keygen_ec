@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let pBarPercentage = 0;
     const pBarText = document.querySelector('#pBarText')
     const btnRestore = document.querySelector('#btn-addon-restore')
-    const toastElement = document.querySelector('#toastr')
 
     // Events
     btnCopy.addEventListener('click', () => {
@@ -18,36 +17,59 @@ document.addEventListener('DOMContentLoaded', () => {
         txtCode.select()
         txtCode.setSelectionRange(0, 99999)
         navigator.clipboard.writeText(txtCode.value)
-        showToast('Copiado', 'text-bg-success')
+        Swal.fire({
+            titleText: 'Codigo copiado',
+            timer: 1750,
+            timerProgressBar: true,
+            showConfirmButton: false,
+        })
     })
 
     btnClear.addEventListener('click', () => {
-        // if (!confirm('Esta seguro/a de borrar el codigo generado?')) return;
         txtCode.value = ''
         latchButtons(true)
         setProgressBar(0)
         clearMessages()
     })
 
-    btnRestore.addEventListener('click', () => {
-        if (!confirm("Esta seguro/a de restablecer los identificadores?")) return;
-        localStorage.clear()
-        showToast('Identificadores reiniciados', 'text-bg-info')
+    btnRestore.addEventListener('click', async () => {
+        const confirmation = await Swal.fire({
+            titleText: 'Desea restablecer el ID del dispositivo?',
+            icon: 'question',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            focusCancel: true,
+            allowOutsideClick: false,
+        })
+        if (confirmation.isConfirmed) {
+            localStorage.clear()
+            Swal.fire({
+                titleText: 'ID restablecido',
+                timer: 2500,
+                timerProgressBar: true,
+                icon: 'success',
+                showConfirmButton: false,
+            })
+        }
     })
 
-    btnRefresh.addEventListener('click', () => {
-        const selectedGame = cmbSelectedGame.value
-        generateCode(selectedGame)
+    btnRefresh.addEventListener('click', async () => {
+        const confirmation = await Swal.fire({
+            titleText: 'Desea solicitar un nuevo codigo?',
+            icon: 'question',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            focusCancel: true,
+            allowOutsideClick: false,
+        })
+        if (confirmation.isConfirmed) {
+            const selectedGame = cmbSelectedGame.value
+            generateCode(selectedGame)
+        }
     })
 
     cmbSelectedGame.addEventListener('change', (event) => {
         generateCode(event.target.value)
-    })
-
-    toastElement.addEventListener('hidden.bs.toast', () => {
-        console.log('Toastr hidden')
-        if (toastElement.classList.contains('text-bg-success')) toastElement.classList.remove('text-bg-success')
-        if (toastElement.classList.contains('text-bg-info'))toastElement.classList.remove('text-bg-info')
     })
 
     // APPS Enum
@@ -174,6 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(err)
         } finally {
             latchButtons(false)
+            cmbSelectedGame.disabled = false
         }
 
     }
@@ -187,7 +210,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const latchButtons = (state) => {
         btnCopy.disabled = state
         btnRefresh.disabled = state
-        cmbSelectedGame.disabled = state
         btnClear.disabled = state
     }
 
@@ -205,13 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const factor = Math.pow(10, precision)
         return Math.round(number * factor) / factor
     }
-
-    const showToast = (msg, style) => {
-        toastElement.classList.add(style)
-        const toastr = new bootstrap.Toast(toastElement)
-        document.querySelector('#toast-msg').innerHTML = msg
-        toastr.show()
-    }
 })
 
 /**
@@ -224,4 +239,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.1 Nuevo juego, Twerk Race.
  * 1.2.2 Parametrizacion de intentos. Mostrar error en Mensajes. Ajuste de logica onChange.
  * 1.2.3 Ajuste en mostrado de valor de barra. Uso de Toast para mensajes
+ * 1.2.4 Uso de SweetAlert para mostrar mensajes emergentes.
  */
