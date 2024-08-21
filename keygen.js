@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         TRAIN: 'Train Miner',
         MERGE: 'Merge Away',
         TWERK: 'Twerk Race 3D',
+        POLYSPHERE: 'Polysphere',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -96,9 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
         CUBE: Object.freeze({ token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3', attempts: 10, delay: 2e4, }),
         TRAIN: Object.freeze({ token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954', attempts: 10, delay: 2e4, }),
         MERGE: Object.freeze({ token: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promo: 'dc128d28-c45b-411c-98ff-ac7726fbaea4', attempts: 10, delay: 2e4, }),
-        TWERK: Object.freeze({ token: '61308365-9d16-4040-8bb0-2f4a4c69074c', promo: '61308365-9d16-4040-8bb0-2f4a4c69074c', attempts: 10, delay: 2e4, })
+        TWERK: Object.freeze({ token: '61308365-9d16-4040-8bb0-2f4a4c69074c', promo: '61308365-9d16-4040-8bb0-2f4a4c69074c', attempts: 10, delay: 2e4, }),
+        POLYSPHERE: Object.freeze({ token: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promo: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', attempts: 22, delay: 2e4 }),
     })
-
     const generateId = (selectedGame) => {
         const fecha = Date.now();
         const random = localStorage.getItem(selectedGame) || Array.from({ length: 19 }, () => Math.floor(Math.random() * 10)).join("");
@@ -240,4 +241,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.2 Parametrizacion de intentos. Mostrar error en Mensajes. Ajuste de logica onChange.
  * 1.2.3 Ajuste en mostrado de valor de barra. Uso de Toast para mensajes
  * 1.2.4 Uso de SweetAlert para mostrar mensajes emergentes.
+ * 1.2.5 Nuevo juego, Polysphere
  */
