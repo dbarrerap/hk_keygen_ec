@@ -83,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         POLYSPHERE: 'Polysphere',
         MUDRACE: 'Mud Racing',
         MOWTRIM: 'Mow and Trim',
+        CAFE: 'Cafe Dash',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -103,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
         POLYSPHERE: Object.freeze({ token: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promo: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', attempts: 22, delay: 2e4 }),
         MUDRACE: Object.freeze({ token: '8814a785-97fb-4177-9193-ca4180ff9da8', promo: '8814a785-97fb-4177-9193-ca4180ff9da8', attempts: 20, delay: 2e4 }),
         MOWTRIM: Object.freeze({ token: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', promo: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', attempts: 20, delay: 2e4 }),
+        CAFE: Object.freeze({ token: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11', promo: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11', attempts: 20, delay: 2e4 })
     })
     const generateId = (selectedGame) => {
         const fecha = Date.now();
@@ -248,4 +250,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.5 Nuevo juego, Polysphere
  * 1.2.6 Nuevos juegos, Mud Racing y Mow and Trim. Ajustes de tiempo en Clone.
  * 1.2.7 Se retira Clone Army
+ * 1.2.8 Nuevo juego, Cafe Dash. UI: Titulo con nombre
  */
