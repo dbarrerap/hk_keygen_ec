@@ -74,14 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // APPS Enum
     const apps = Object.freeze({
-        BIKE: 'Bike Ride 3D',
+        // BIKE: 'Bike Ride 3D',
         // CLONE: 'My Clone Army',
         CUBE: 'Chain Cube 2048',
         TRAIN: 'Train Miner',
         MERGE: 'Merge Away',
         TWERK: 'Twerk Race 3D',
         POLYSPHERE: 'Polysphere',
-        MUDRACE: 'Mud Racing',
+        // MUDRACE: 'Mud Racing',
         MOWTRIM: 'Mow and Trim',
         CAFE: 'Cafe Dash',
         ZOOPOLIS: 'Zoopolis',
@@ -255,4 +255,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.6 Nuevos juegos, Mud Racing y Mow and Trim. Ajustes de tiempo en Clone.
  * 1.2.7 Se retira Clone Army
  * 1.2.8 Nuevo juego, Cafe Dash. UI: Titulo con nombre
+ * 1.2.9 Nuevos juegos, Zoopolis, Gang Wars.
  */
