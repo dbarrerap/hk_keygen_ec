@@ -76,16 +76,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const apps = Object.freeze({
         // BIKE: 'Bike Ride 3D',
         // CLONE: 'My Clone Army',
-        CUBE: 'Chain Cube 2048',
+        MOWTRIM: 'Mow and Trim',
         TRAIN: 'Train Miner',
+        CUBE: 'Chain Cube 2048',
         MERGE: 'Merge Away',
+        ZOOPOLIS: 'Zoopolis',
         TWERK: 'Twerk Race 3D',
         POLYSPHERE: 'Polysphere',
         // MUDRACE: 'Mud Racing',
-        MOWTRIM: 'Mow and Trim',
-        CAFE: 'Cafe Dash',
-        ZOOPOLIS: 'Zoopolis',
-        GANGWARS: 'Gang Wars',
+        // CAFE: 'Cafe Dash',
+        // GANGWARS: 'Gang Wars',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -256,4 +256,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.7 Se retira Clone Army
  * 1.2.8 Nuevo juego, Cafe Dash. UI: Titulo con nombre
  * 1.2.9 Nuevos juegos, Zoopolis, Gang Wars.
+ * 1.2.10 Se retiran varios juegos.
  */
