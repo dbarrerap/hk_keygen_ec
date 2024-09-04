@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // MUDRACE: 'Mud Racing',
         // CAFE: 'Cafe Dash',
         // GANGWARS: 'Gang Wars',
+        TILETRIO: 'Tile Trio',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -97,18 +98,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // APS Token
     const tokens = Object.freeze({
-        // BIKE: Object.freeze({ token: 'd28721be-fd2d-4b45-869e-9f253b554e50', promo: '43e35910-c168-4634-ad4f-52fd764a843f', attempts: 22, delay: 2e4, }),
-        // CLONE: Object.freeze({ token: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb', promo: 'fe693b26-b342-4159-8808-15e3ff7f8767', attempts: 11, delay: 7e4, }),
+        BIKE: Object.freeze({ token: 'd28721be-fd2d-4b45-869e-9f253b554e50', promo: '43e35910-c168-4634-ad4f-52fd764a843f', attempts: 22, delay: 2e4, }),
+        CLONE: Object.freeze({ token: '74ee0b5b-775e-4bee-974f-63e7f4d5bacb', promo: 'fe693b26-b342-4159-8808-15e3ff7f8767', attempts: 11, delay: 7e4, }),
         CUBE: Object.freeze({ token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3', attempts: 10, delay: 2e4, }),
         TRAIN: Object.freeze({ token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954', attempts: 10, delay: 2e4, }),
         MERGE: Object.freeze({ token: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promo: 'dc128d28-c45b-411c-98ff-ac7726fbaea4', attempts: 10, delay: 2e4, }),
         TWERK: Object.freeze({ token: '61308365-9d16-4040-8bb0-2f4a4c69074c', promo: '61308365-9d16-4040-8bb0-2f4a4c69074c', attempts: 10, delay: 2e4, }),
         POLYSPHERE: Object.freeze({ token: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promo: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', attempts: 22, delay: 2e4 }),
-        // MUDRACE: Object.freeze({ token: '8814a785-97fb-4177-9193-ca4180ff9da8', promo: '8814a785-97fb-4177-9193-ca4180ff9da8', attempts: 20, delay: 2e4 }),
+        MUDRACE: Object.freeze({ token: '8814a785-97fb-4177-9193-ca4180ff9da8', promo: '8814a785-97fb-4177-9193-ca4180ff9da8', attempts: 20, delay: 2e4 }),
         MOWTRIM: Object.freeze({ token: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', promo: 'ef319a80-949a-492e-8ee0-424fb5fc20a6', attempts: 20, delay: 2e4 }),
         CAFE: Object.freeze({ token: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11', promo: 'bc0971b8-04df-4e72-8a3e-ec4dc663cd11', attempts: 20, delay: 2e4 }),
         ZOOPOLIS: Object.freeze({ token: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promo: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', attempts: 20, delay: 2e4 }),
         GANGWARS: Object.freeze({ token: 'b6de60a0-e030-48bb-a551-548372493523', promo: 'c7821fa7-6632-482c-9635-2bd5798585f9', attempts: 30, delay: 4e4 }),
+        TILETRIO: Object.freeze({ token: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', promo: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', attempts: 20, delay: 2e4 }),
     })
     const generateId = (selectedGame) => {
         const fecha = Date.now();
@@ -257,4 +259,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.8 Nuevo juego, Cafe Dash. UI: Titulo con nombre
  * 1.2.9 Nuevos juegos, Zoopolis, Gang Wars.
  * 1.2.10 Se retiran varios juegos.
+ * 1.2.11 Nuevo juego, Tile Trio.
  */
