@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // CAFE: 'Cafe Dash',
         // GANGWARS: 'Gang Wars',
         TILETRIO: 'Tile Trio',
+        FLUFFCRUSADE: 'Fluff Crusade',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ZOOPOLIS: Object.freeze({ token: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promo: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', attempts: 20, delay: 2e4 }),
         GANGWARS: Object.freeze({ token: 'b6de60a0-e030-48bb-a551-548372493523', promo: 'c7821fa7-6632-482c-9635-2bd5798585f9', attempts: 30, delay: 4e4 }),
         TILETRIO: Object.freeze({ token: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', promo: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', attempts: 20, delay: 2e4 }),
+        FLUFFCRUSADE: Object.freeze({ token: '112887b0-a8af-4eb2-ac63-d82df78283d9', promo: '112887b0-a8af-4eb2-ac63-d82df78283d9', attempts: 10, delay: 4e4 }),
     })
     const generateId = (selectedGame) => {
         const fecha = Date.now();
@@ -259,5 +261,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.8 Nuevo juego, Cafe Dash. UI: Titulo con nombre
  * 1.2.9 Nuevos juegos, Zoopolis, Gang Wars.
  * 1.2.10 Se retiran varios juegos.
- * 1.2.11 Nuevo juego, Tile Trio.
+ * 1.2.11 Nuevo juego, Tile Trio. Ammend: Fluff Crusade
  */
