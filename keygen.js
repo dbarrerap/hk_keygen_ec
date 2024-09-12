@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnClear.addEventListener('click', () => {
         txtCode.value = ''
-        latchButtons(true)
+        // latchButtons(true)
         setProgressBar(0)
         clearMessages()
     })
@@ -88,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // GANGWARS: 'Gang Wars',
         TILETRIO: 'Tile Trio',
         FLUFFCRUSADE: 'Fluff Crusade',
-        STONEAGE: 'Stone Age'
+        STONEAGE: 'Stone Age',
+        BOUNCE: 'Bouncemasters',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -115,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         TILETRIO: Object.freeze({ token: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', promo: 'e68b39d2-4880-4a31-b3aa-0393e7df10c7', attempts: 20, delay: 2e4 }),
         FLUFFCRUSADE: Object.freeze({ token: '112887b0-a8af-4eb2-ac63-d82df78283d9', promo: '112887b0-a8af-4eb2-ac63-d82df78283d9', attempts: 10, delay: 4e4 }),
         STONEAGE: Object.freeze({ token: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af', promo: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af', attempts: 20, delay: 2e4 }),
+        BOUNCE: Object.freeze({ token: 'bc72d3b9-8e91-4884-9c33-f72482f0db37', promo: 'bc72d3b9-8e91-4884-9c33-f72482f0db37', attempts: 10, delay: 2e4 }),
     })
     const generateId = (selectedGame) => {
         const fecha = Date.now();
@@ -265,4 +267,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.10 Se retiran varios juegos.
  * 1.2.11 Nuevo juego, Tile Trio. Ammend: Fluff Crusade
  * 1.2.12 Nuevo Juego: Stone Age
+ * 1.2.13 Nuevo juego: Bouncemasters
  */
