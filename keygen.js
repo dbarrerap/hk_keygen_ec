@@ -93,6 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
         HIDEBALL: 'Hide Ball',
         PINOUT: 'Pin Out Master',
         COUNT: 'Count Master',
+        INFCT: 'Infected Frontier',
+        AMONG: 'Among Water',
+        FCTRY: 'Factory World',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -123,6 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
         HIDEBALL: Object.freeze({ token: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600', promo: '4bf4966c-4d22-439b-8ff2-dc5ebca1a600', attempts: 20, delay: 3e4 }),
         PINOUT: Object.freeze({ token: 'd2378baf-d617-417a-9d99-d685824335f0', promo: 'd2378baf-d617-417a-9d99-d685824335f0', attempts: 20, delay: 4e4 }),
         COUNT: Object.freeze({ token: '4bdc17da-2601-449b-948e-f8c7bd376553', promo: '4bdc17da-2601-449b-948e-f8c7bd376553', attempts: 20, delay: 4e4 }),
+        INFCT: Object.freeze({ token: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', promo: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', attempts: 10, delay: 4e4 }),
+        AMONG: Object.freeze({ token: 'daab8f83-8ea2-4ad0-8dd5-d33363129640', promo: 'daab8f83-8ea2-4ad0-8dd5-d33363129640', attempts: 10, delay: 4e4 }),
+        FCTRY: Object.freeze({ token: 'd02fc404-8985-4305-87d8-32bd4e66bb16', promo: 'd02fc404-8985-4305-87d8-32bd4e66bb16', attempts: 10, delay: 4e4 }),
     })
     const generateId = (selectedGame) => {
         const fecha = Date.now();
@@ -276,4 +282,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.13 Nuevo juego: Bouncemasters
  * 1.2.14 Nuevo juego: Hide Ball
  * 1.2.15 Nuevos juegos: Pin Out Master, Count Masters
+ * 1.2.16 Nuevos juegos: Factory World, Among Water, Infected Frontier
  */
