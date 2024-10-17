@@ -96,6 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
         INFCT: 'Infected Frontier',
         AMONG: 'Among Water',
         FCTRY: 'Factory World',
+        SNAKE: 'Snake Run',
+        COOKST: 'Cooking Stories',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -129,6 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
         INFCT: Object.freeze({ token: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', promo: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', attempts: 10, delay: 4e4 }),
         AMONG: Object.freeze({ token: 'daab8f83-8ea2-4ad0-8dd5-d33363129640', promo: 'daab8f83-8ea2-4ad0-8dd5-d33363129640', attempts: 10, delay: 4e4 }),
         FCTRY: Object.freeze({ token: 'd02fc404-8985-4305-87d8-32bd4e66bb16', promo: 'd02fc404-8985-4305-87d8-32bd4e66bb16', attempts: 10, delay: 4e4 }),
+        SNAKE: Object.freeze({ token: 'c8e017e2-8817-4d02-bce6-b951e74bb18f', promo: 'c8e017e2-8817-4d02-bce6-b951e74bb18f', attempts: 30, delay: 2e4 }),
+        COOKST: Object.freeze({ token: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054', promo: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054', attempts: 10, delay: 4e4 }),
     })
     const generateId = (selectedGame) => {
         const fecha = Date.now();
@@ -283,4 +287,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.14 Nuevo juego: Hide Ball
  * 1.2.15 Nuevos juegos: Pin Out Master, Count Masters
  * 1.2.16 Nuevos juegos: Factory World, Among Water, Infected Frontier
+ * 1.2.17 Nuevos juegos: Cooking Stories, Snake Run
  */
