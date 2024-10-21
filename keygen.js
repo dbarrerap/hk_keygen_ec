@@ -74,30 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // APPS Enum
     const apps = Object.freeze({
+        TRAIN: 'Train Miner',
+        FCTRY: 'Factory World',
+        COUNT: 'Count Master',
+        SNAKE: 'Snake Run',
+        MERGE: 'Merge Away',
+        COOKST: 'Cooking Stories',
+        CUBE: 'Chain Cube 2048',
+        INFCT: 'Infected Frontier',
+        BOUNCE: 'Bouncemasters',
+        POLYSPHERE: 'Polysphere',
+        ZOOPOLIS: 'Zoopolis',
         // BIKE: 'Bike Ride 3D',
         // CLONE: 'My Clone Army',
-        MOWTRIM: 'Mow and Trim',
-        TRAIN: 'Train Miner',
-        CUBE: 'Chain Cube 2048',
-        MERGE: 'Merge Away',
-        ZOOPOLIS: 'Zoopolis',
-        TWERK: 'Twerk Race 3D',
-        POLYSPHERE: 'Polysphere',
+        // MOWTRIM: 'Mow and Trim',
+        // TWERK: 'Twerk Race 3D',
         // MUDRACE: 'Mud Racing',
         // CAFE: 'Cafe Dash',
         // GANGWARS: 'Gang Wars',
-        TILETRIO: 'Tile Trio',
-        FLUFFCRUSADE: 'Fluff Crusade',
-        STONEAGE: 'Stone Age',
-        BOUNCE: 'Bouncemasters',
-        HIDEBALL: 'Hide Ball',
-        PINOUT: 'Pin Out Master',
-        COUNT: 'Count Master',
-        INFCT: 'Infected Frontier',
-        AMONG: 'Among Water',
-        FCTRY: 'Factory World',
-        SNAKE: 'Snake Run',
-        COOKST: 'Cooking Stories',
+        // TILETRIO: 'Tile Trio',
+        // FLUFFCRUSADE: 'Fluff Crusade',
+        // STONEAGE: 'Stone Age',
+        // HIDEBALL: 'Hide Ball',
+        // PINOUT: 'Pin Out Master',
+        // AMONG: 'Among Water',
     })
 
     for (const [value, label] of Object.entries(apps)) {
@@ -288,4 +288,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.15 Nuevos juegos: Pin Out Master, Count Masters
  * 1.2.16 Nuevos juegos: Factory World, Among Water, Infected Frontier
  * 1.2.17 Nuevos juegos: Cooking Stories, Snake Run
+ * 1.2.17.1 Se retiran varios juegos.
  */
