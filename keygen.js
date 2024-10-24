@@ -75,68 +75,79 @@ document.addEventListener('DOMContentLoaded', () => {
     // APPS Enum
     const app = [
         { 
-            code: 'TRAIN', label: 'Train Miner', 
+            code: 'TRAIN', label: 'Train Miner', featured: false, enabled: true,
             token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'FCTRY', label: 'Factory World',
+            code: 'FCTRY', label: 'Factory World', featured: false, enabled: true,
             token: 'd02fc404-8985-4305-87d8-32bd4e66bb16', promo: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
             attempts: 10, delay: 4e4,
         },
         {
-            code: 'COUNT', label: 'Count Masters',
+            code: 'COUNT', label: 'Count Masters', featured: true, enabled: true,
             token: '4bdc17da-2601-449b-948e-f8c7bd376553', promo: '4bdc17da-2601-449b-948e-f8c7bd376553',
             attempts: 20, delay: 4e4,
         },
         {
-            code: 'SNAKE', label: 'Snake Run',
+            code: 'SNAKE', label: 'Snake Run', featured: false, enabled: true,
             token: 'c8e017e2-8817-4d02-bce6-b951e74bb18f', promo: 'c8e017e2-8817-4d02-bce6-b951e74bb18f',
             attempts: 30, delay: 2e4,
         },
         {
-            code: 'MERGE', label: 'Merge Away',
+            code: 'MERGE', label: 'Merge Away', featured: true, enabled: true,
             token: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promo: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'COOKST', label: 'Cooking Stories',
+            code: 'COOKST', label: 'Cooking Stories', featured: false, enabled: true,
             token: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054', promo: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054',
             attempts: 10, delay: 4e4,
         },
         {
-            code: 'CUBE', label: 'Chain Cube 2048',
-            token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: '4170868-cef0-424f-8eb9-be0622e8e8e3',
+            code: 'CUBE', label: 'Chain Cube 2048', featured: true, enabled: true,
+            token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'INFCT', label: 'Infected Frontier',
+            code: 'INFCT', label: 'Infected Frontier', enabled: true,
             token: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', promo: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
             attempts: 10, delay: 4e4,
         },
         {
-            code: 'BOUNCE', label: 'Bouncemasters',
+            code: 'BOUNCE', label: 'Bouncemasters', featured: false, enabled: true,
             token: 'bc72d3b9-8e91-4884-9c33-f72482f0db37', promo: 'bc72d3b9-8e91-4884-9c33-f72482f0db37',
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'POLYSPHERE', label: 'Polysphere',
+            code: 'POLYSPHERE', label: 'Polysphere', featured: false, enabled: true,
             token: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71', promo: '2aaf5aee-2cbc-47ec-8a3f-0962cc14bc71',
             attempts: 22, delay: 2e4,
         },
         {
-            code: 'ZOOPOLIS', label: 'Zoopolis',
+            code: 'ZOOPOLIS', label: 'Zoopolis', featured: false, enabled: true,
             token: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promo: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b',
             attempts: 20, delay: 2e4,
         },
+        {
+            code: 'STONE', label: 'Stone Age', featured: false, enabled: false,
+            token: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af', promo: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
+            attempts: 30, delay: 2e4,
+        },
+        {
+            code: 'TOWER', label: 'Tower Defence', featured: false, enabled: true,
+            token: '53bf823a-948c-48c4-8bd5-9c21903416df', promo: '53bf823a-948c-48c4-8bd5-9c21903416df',
+            attempts: 10, delay: 2e4,
+        },
     ]
 
-    for (const {code, label} of app) {
+    for (const {code, label, featured, enabled} of app) {
+        if (!enabled) continue;
         const opt = document.createElement('option')
         opt.value = code
-        opt.innerHTML = label
-        cmbSelectedGame.appendChild(opt)
-        // console.log(entry)
+        opt.innerHTML = featured ? `★ ${label}` : label;
+        if (featured) cmbSelectedGame.insertBefore(opt, cmbSelectedGame.children[1])
+        else cmbSelectedGame.appendChild(opt)
     }
 
     const generateId = (selectedGame) => {
@@ -298,5 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.2.16 Nuevos juegos: Factory World, Among Water, Infected Frontier
  * 1.2.17 Nuevos juegos: Cooking Stories, Snake Run
  * 1.2.17.1 Se retiran varios juegos.
- * 1.2.18 Nuevo arreglo para hacer uso de una sola estructura de datos
+ * 1.3.0 Nuevo arreglo para hacer uso de una sola estructura de datos
+ * 1.3.1 Se agregan propiedades para los juegos destacados y poder habilitar/deshabilitar.
+ * 1.3.2 Nuevo juego: Tower Defense 
  */
