@@ -72,8 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         generateCode(event.target.value)
     })
 
-    // APPS Enum
-    const app = [
+    const apps = [
         { 
             code: 'TRAIN', label: 'Train Miner', featured: false, enabled: true,
             token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
@@ -105,12 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 4e4,
         },
         {
-            code: 'CUBE', label: 'Chain Cube 2048', featured: true, enabled: true,
+            code: 'CUBE', label: 'Chain Cube 2048', featured: false, enabled: true,
             token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'INFCT', label: 'Infected Frontier', enabled: true,
+            code: 'INFCT', label: 'Infected Frontier', featured: false, enabled: true,
             token: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', promo: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
             attempts: 10, delay: 4e4,
         },
@@ -135,13 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 30, delay: 2e4,
         },
         {
-            code: 'TOWER', label: 'Tower Defence', featured: false, enabled: true,
+            code: 'TOWER', label: 'Tower Defence', featured: true, enabled: true,
             token: '53bf823a-948c-48c4-8bd5-9c21903416df', promo: '53bf823a-948c-48c4-8bd5-9c21903416df',
             attempts: 10, delay: 2e4,
         },
     ]
 
-    for (const {code, label, featured, enabled} of app) {
+    for (const {code, label, featured, enabled} of apps) {
         if (!enabled) continue;
         const opt = document.createElement('option')
         opt.value = code
@@ -208,8 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Obtener data del juego seleccionado 
-            const {token, promo, attempts, delay} = app.find(e => e['code'] == selectedGame)
-            console.log(token, promo, attempts, delay)
+            const {token, promo, attempts, delay} = apps.find(e => e['code'] == selectedGame)
+            // console.log(token, promo, attempts, delay)
             // return
             // Inicar sesion
             const litem = document.createElement('li')
@@ -312,4 +311,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.3.0 Nuevo arreglo para hacer uso de una sola estructura de datos
  * 1.3.1 Se agregan propiedades para los juegos destacados y poder habilitar/deshabilitar.
  * 1.3.2 Nuevo juego: Tower Defense 
+ * 1.3.2.1 Ajustes menores
  */
