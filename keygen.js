@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ul = document.querySelector('#messages')
     const pBarText = document.querySelector('#pBarText')
     const btnRestore = document.querySelector('#btn-addon-restore')
+    const imgContainer = document.querySelector('#imgContainer')
     let pBarPercentage = 0;
 
     // Events
@@ -69,7 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     cmbSelectedGame.addEventListener('change', (event) => {
-        generateCode(event.target.value)
+        const selectedGame = event.target.value
+        showImage(selectedGame)
+        generateCode(selectedGame)
     })
 
     const apps = [
@@ -254,6 +257,11 @@ document.addEventListener('DOMContentLoaded', () => {
             cmbSelectedGame.disabled = false
         }
 
+    }
+
+    const showImage = (selectedGame) => {
+        if (selectedGame == '-- SELECT --') console.log('nothing')
+        else imgContainer.setAttribute('src', `img/${selectedGame}.webp`)
     }
 
     // Helpers
