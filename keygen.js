@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     const apps = [
-        { 
+        {
             code: 'TRAIN', label: 'Train Miner', featured: false, enabled: true,
             token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
             attempts: 10, delay: 2e4,
@@ -140,14 +140,15 @@ document.addEventListener('DOMContentLoaded', () => {
         },
     ]
 
-    for (const {code, label, featured, enabled} of apps) {
-        if (!enabled) continue;
-        const opt = document.createElement('option')
-        opt.value = code
-        opt.innerHTML = featured ? `★ ${label}` : label;
-        if (featured) cmbSelectedGame.insertBefore(opt, cmbSelectedGame.children[1])
-        else cmbSelectedGame.appendChild(opt)
-    }
+    apps.forEach(({ code, label, featured, enabled }) => {
+        if (enabled) {
+            const opt = document.createElement('option')
+            opt.value = code
+            opt.innerHTML = featured ? `★ ${label}` : label;
+            if (featured) cmbSelectedGame.insertBefore(opt, cmbSelectedGame.children[1])
+            else cmbSelectedGame.appendChild(opt)
+        }
+    })
 
     const generateId = (selectedGame) => {
         const fecha = Date.now();
@@ -193,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const generateCode = async (selectedGame) => {
-        
+
         // Validar seleccion
         // console.log(selectedGame)
         if (selectedGame === '-- SELECT --') return
@@ -207,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Obtener data del juego seleccionado 
-            const {token, promo, attempts, delay} = apps.find(e => e['code'] == selectedGame)
+            const { token, promo, attempts, delay } = apps.find(g => g.code == selectedGame)
             // console.log(token, promo, attempts, delay)
             // return
             // Inicar sesion
