@@ -10,7 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const pBarText = document.querySelector('#pBarText')
     const btnRestore = document.querySelector('#btn-addon-restore')
     const imgContainer = document.querySelector('#imgContainer')
+    const btnDebug = document.querySelector('#lbl_name')
     let pBarPercentage = 0;
+    const { user } = window.Telegram.WebApp.initDataUnsafe
+
+    if (user) document.querySelector('#lbl_name').textContent = `${user.first_name}`
 
     // Events
     btnCopy.addEventListener('click', () => {
@@ -67,12 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const selectedGame = cmbSelectedGame.value
             generateCode(selectedGame)
         }
-    })
-
-    cmbSelectedGame.addEventListener('change', (event) => {
-        const selectedGame = event.target.value
-        showImage(selectedGame)
-        generateCode(selectedGame)
     })
 
     const apps = [
@@ -153,6 +151,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    cmbSelectedGame.addEventListener('change', (event) => {
+        const selectedGame = event.target.value
+        showImage(selectedGame)
+        generateCode(selectedGame)
+    })
+
+    btnDebug.addEventListener('click', () => {
+        const stats = localStorage.getItem('stats')
+        if (stats) {
+            const { id, codes } = JSON.parse(stats)
+            Swal.fire({ html: `<dl><dt>id</dt><dd>${id}</dd><dt>codes</dt><dd>${JSON.stringify(codes)}</dd></dl>` })
+        } else {
+            Swal.fire('No data', '', 'info')
+        }
+    })
+
     const generateId = (selectedGame) => {
         const fecha = Date.now();
         const random = localStorage.getItem(selectedGame) || Array.from({ length: 19 }, () => Math.floor(Math.random() * 10)).join("");
@@ -194,6 +208,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }), { promoCode: r } = await response.json()
 
         return r;
+    }
+
+    const logRequest = (selectedGame) => {
+
+        const prevStats = localStorage.getItem('stats')
+        const stats = (prevStats) ? JSON.parse(prevStats) : { id: 1, name: "David Barrera", codes: {} }
+        if (stats.codes[selectedGame]) stats.codes[selectedGame] += 1
+        else stats.codes[selectedGame] = 1
+        localStorage.setItem('stats', JSON.stringify(stats))
     }
 
     const generateCode = async (selectedGame) => {
@@ -246,6 +269,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ul.appendChild(lcreate)
             setProgressBar(100)
             txtCode.value = keyCode
+
+            logRequest(selectedGame)
 
         } catch (err) {
             const lerror = document.createElement('li')
@@ -321,4 +346,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.3.1 Se agregan propiedades para los juegos destacados y poder habilitar/deshabilitar.
  * 1.3.2 Nuevo juego: Tower Defense 
  * 1.3.2.1 Ajustes menores
+ * 1.3.2.2 Registro de estadisticas
  */

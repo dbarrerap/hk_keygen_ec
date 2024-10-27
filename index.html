@@ -131,29 +131,6 @@
         </div>
     </div>
 
-    <script>
-        (() => {
-            const tgData = window.Telegram.WebApp
-
-            const user = tgData.initDataUnsafe.user
-            console.log(user)
-            if (user) document.querySelector('#lbl_name').textContent = `${user['first_name']}`
-
-            /* const themeData = tgData.themeParams
-            //console.log(JSON.stringify(themeData))
-            const cuerpo = document.querySelector('body')
-            const newParams = Object.freeze({
-                backgroundColor: themeData.secondary_bg_color,
-                color: themeData.text_color
-                })
-                for (const prop in newParams) {
-                    cuerpo.style[prop] = newParams[prop]
-                    } */
-            /* document.querySelectorAll('.nav-link.active').forEach(boton => {
-             boton.style.backgroundColor = themeData.button_color
-             }) */
-        })();
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
