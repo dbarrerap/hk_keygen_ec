@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const apps = [
         {
-            code: 'TRAIN', label: 'Train Miner', featured: false, enabled: true,
+            code: 'TRAIN', label: 'Train Miner', featured: true, enabled: true,
             token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
             attempts: 10, delay: 2e4,
         },
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 30, delay: 2e4,
         },
         {
-            code: 'TOWER', label: 'Tower Defence', featured: true, enabled: true,
+            code: 'TOWER', label: 'Tower Defence', featured: false, enabled: true,
             token: '53bf823a-948c-48c4-8bd5-9c21903416df', promo: '53bf823a-948c-48c4-8bd5-9c21903416df',
             attempts: 10, delay: 2e4,
         },
