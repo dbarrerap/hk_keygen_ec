@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logRequest = (selectedGame) => {
 
         const prevStats = localStorage.getItem('stats')
-        const stats = (prevStats) ? JSON.parse(prevStats) : { id: 1, name: "David Barrera", codes: {} }
+        const stats = (prevStats) ? JSON.parse(prevStats) : { id: user.id, name: user.first_name, codes: {} }
         if (stats.codes[selectedGame]) stats.codes[selectedGame] += 1
         else stats.codes[selectedGame] = 1
         localStorage.setItem('stats', JSON.stringify(stats))
@@ -226,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedGame === '-- SELECT --') return
 
         // Housekeeping
+        resetStorage()  // Check if first run
         clearMessages()
         txtCode.value = ''
         latchButtons(true)
@@ -314,6 +315,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const roundTo = (number, precision) => {
         const factor = Math.pow(10, precision)
         return Math.round(number * factor) / factor
+    }
+
+    const resetStorage = () => {
+        const firstRun = Boolean(localStorage.getItem('firstRun'))
+        if (!firstRun) {
+            localStorage.removeItem('stats')
+            localStorage.setItem('firstRun', 'false')
+        }
     }
 })
 
