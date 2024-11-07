@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', () => {
             token: '4bdc17da-2601-449b-948e-f8c7bd376553', promo: '4bdc17da-2601-449b-948e-f8c7bd376553',
             attempts: 20, delay: 4e4,
         },
-        {
+        /* {
             code: 'SNAKE', label: 'Snake Run', featured: false, enabled: true,
             token: 'c8e017e2-8817-4d02-bce6-b951e74bb18f', promo: 'c8e017e2-8817-4d02-bce6-b951e74bb18f',
             attempts: 30, delay: 2e4,
-        },
+        }, */
         {
             code: 'MERGE', label: 'Merge Away', featured: true, enabled: true,
             token: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promo: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
@@ -109,11 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
             token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
             attempts: 10, delay: 2e4,
         },
-        {
+        /* {
             code: 'INFCT', label: 'Infected Frontier', featured: false, enabled: true,
             token: 'eb518c4b-e448-4065-9d33-06f3039f0fcb', promo: 'eb518c4b-e448-4065-9d33-06f3039f0fcb',
             attempts: 10, delay: 4e4,
-        },
+        }, */
         {
             code: 'BOUNCE', label: 'Bouncemasters', featured: false, enabled: true,
             token: 'bc72d3b9-8e91-4884-9c33-f72482f0db37', promo: 'bc72d3b9-8e91-4884-9c33-f72482f0db37',
@@ -129,11 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
             token: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promo: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b',
             attempts: 20, delay: 2e4,
         },
-        {
+       /*  {
             code: 'STONE', label: 'Stone Age', featured: false, enabled: false,
             token: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af', promo: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
             attempts: 30, delay: 2e4,
-        },
+        }, */
         {
             code: 'TOWER', label: 'Tower Defence', featured: false, enabled: true,
             token: '53bf823a-948c-48c4-8bd5-9c21903416df', promo: '53bf823a-948c-48c4-8bd5-9c21903416df',
