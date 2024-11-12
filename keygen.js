@@ -75,17 +75,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const apps = [
         {
-            code: 'TRAIN', label: 'Train Miner', featured: false, enabled: true,
+            code: 'TRAIN', label: 'Train Miner', featured: false, enabled: false,
             token: '82647f43-3f87-402d-88dd-09a90025313f', promo: 'c4480ac7-e178-4973-8061-9ed5b2e17954',
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'FCTRY', label: 'Factory World', featured: false, enabled: true,
+            code: 'FCTRY', label: 'Factory World', featured: true, enabled: true,
             token: 'd02fc404-8985-4305-87d8-32bd4e66bb16', promo: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
             attempts: 10, delay: 4e4,
         },
         {
-            code: 'COUNT', label: 'Count Masters', featured: true, enabled: true,
+            code: 'COUNT', label: 'Count Masters', featured: false, enabled: true,
             token: '4bdc17da-2601-449b-948e-f8c7bd376553', promo: '4bdc17da-2601-449b-948e-f8c7bd376553',
             attempts: 20, delay: 4e4,
         },
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 4e4,
         },
         {
-            code: 'CUBE', label: 'Chain Cube 2048', featured: false, enabled: true,
+            code: 'CUBE', label: 'Chain Cube 2048', featured: false, enabled: false,
             token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
             attempts: 10, delay: 2e4,
         },
