@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 4e4,
         },
         {
-            code: 'COUNT', label: 'Count Masters', featured: false, enabled: true,
+            code: 'COUNT', label: 'Count Masters', featured: false, enabled: false,
             token: '4bdc17da-2601-449b-948e-f8c7bd376553', promo: '4bdc17da-2601-449b-948e-f8c7bd376553',
             attempts: 20, delay: 4e4,
         },
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'COOKST', label: 'Cooking Stories', featured: false, enabled: true,
+            code: 'COOKST', label: 'Cooking Stories', featured: true, enabled: true,
             token: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054', promo: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054',
             attempts: 10, delay: 4e4,
         },
@@ -129,13 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
             token: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b', promo: 'b2436c89-e0aa-4aed-8046-9b0515e1c46b',
             attempts: 20, delay: 2e4,
         },
-       /*  {
+        {
             code: 'STONE', label: 'Stone Age', featured: false, enabled: false,
             token: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af', promo: '04ebd6de-69b7-43d1-9c4b-04a6ca3305af',
             attempts: 30, delay: 2e4,
-        }, */
+        },
         {
-            code: 'TOWER', label: 'Tower Defence', featured: true, enabled: true,
+            code: 'TOWER', label: 'Tower Defence', featured: false, enabled: false,
             token: '53bf823a-948c-48c4-8bd5-9c21903416df', promo: '53bf823a-948c-48c4-8bd5-9c21903416df',
             attempts: 10, delay: 2e4,
         },
