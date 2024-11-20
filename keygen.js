@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'COOKST', label: 'Cooking Stories', featured: true, enabled: true,
+            code: 'COOKST', label: 'Cooking Stories', featured: false, enabled: true,
             token: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054', promo: 'ed526e8c-e6c8-40fd-b72a-9e78ff6a2054',
             attempts: 10, delay: 4e4,
         },
@@ -139,6 +139,11 @@ document.addEventListener('DOMContentLoaded', () => {
             token: '53bf823a-948c-48c4-8bd5-9c21903416df', promo: '53bf823a-948c-48c4-8bd5-9c21903416df',
             attempts: 10, delay: 2e4,
         },
+        {
+            code: 'DALE', label: 'Merge Dale', featured: true, enabled: true,
+            token: '13f7bd7c-b4b3-41f1-9905-a7db2e814bff', promo: '13f7bd7c-b4b3-41f1-9905-a7db2e814bff',
+            attempts: 10, delay: 22e3,
+        }
     ]
 
     apps.forEach(({ code, label, featured, enabled }) => {
@@ -356,4 +361,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.3.2 Nuevo juego: Tower Defense 
  * 1.3.2.1 Ajustes menores
  * 1.3.2.2 Registro de estadisticas
+ * 1.3.3 Nuevo juego: Merge Dale
  */
