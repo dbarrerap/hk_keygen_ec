@@ -143,6 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
             code: 'DALE', label: 'Merge Dale', featured: true, enabled: true,
             token: '13f7bd7c-b4b3-41f1-9905-a7db2e814bff', promo: '13f7bd7c-b4b3-41f1-9905-a7db2e814bff',
             attempts: 10, delay: 22e3,
+        },
+        {
+            code: 'MAGIC', label: 'Aftermagic', featured: false, enabled: true,
+            token: 'e355f8c7-3764-49cd-a298-530d666435c3', promo: 'e355f8c7-3764-49cd-a298-530d666435c3',
+            attempts: 10, delay: 2e4
         }
     ]
 
@@ -362,4 +367,5 @@ document.addEventListener('DOMContentLoaded', () => {
  * 1.3.2.1 Ajustes menores
  * 1.3.2.2 Registro de estadisticas
  * 1.3.3 Nuevo juego: Merge Dale
+ * 1.3.4 Nuevo juego: Aftermagic
  */
