@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 2e4,
         },
         {
-            code: 'FCTRY', label: 'Factory World', featured: true, enabled: true,
+            code: 'FCTRY', label: 'Factory World', featured: false, enabled: true,
             token: 'd02fc404-8985-4305-87d8-32bd4e66bb16', promo: 'd02fc404-8985-4305-87d8-32bd4e66bb16',
             attempts: 10, delay: 4e4,
         },
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 22e3,
         },
         {
-            code: 'MAGIC', label: 'Aftermagic', featured: false, enabled: true,
+            code: 'MAGIC', label: 'Aftermagic', featured: true, enabled: true,
             token: 'e355f8c7-3764-49cd-a298-530d666435c3', promo: 'e355f8c7-3764-49cd-a298-530d666435c3',
             attempts: 10, delay: 2e4
         }
