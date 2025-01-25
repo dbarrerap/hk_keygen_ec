@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 30, delay: 20e3,
         },
         {
-            code: 'MERGE', label: 'Merge Away', featured: false, enabled: true,
+            code: 'MERGE', label: 'Merge Away', featured: true, enabled: true,
             token: '8d1cc2ad-e097-4b86-90ef-7a27e19fb833', promo: 'dc128d28-c45b-411c-98ff-ac7726fbaea4',
             attempts: 10, delay: 20e3,
         },
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 40e3,
         },
         {
-            code: 'CUBE', label: 'Chain Cube 2048', featured: false, enabled: false,
+            code: 'CUBE', label: 'Chain Cube 2048', featured: false, enabled: true,
             token: 'd1690a07-3780-4068-810f-9b5bbf2931b2', promo: 'b4170868-cef0-424f-8eb9-be0622e8e8e3',
             attempts: 10, delay: 20e3,
         },
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             attempts: 10, delay: 22e3,
         },
         {
-            code: 'MAGIC', label: 'Aftermagic', featured: true, enabled: true,
+            code: 'MAGIC', label: 'Aftermagic', featured: false, enabled: false,
             token: 'e355f8c7-3764-49cd-a298-530d666435c3', promo: 'e355f8c7-3764-49cd-a298-530d666435c3',
             attempts: 10, delay: 20e3
         },
